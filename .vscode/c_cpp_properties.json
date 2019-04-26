@@ -1,5 +1,5 @@
 {
-    "env" : {
+    "env": {
         "myDefaultIncludePath": [
             "${workspaceFolder}",
             "${workspaceFolder}/include"
@@ -10,19 +10,29 @@
         {
             "name": "Mac",
             "intelliSenseMode": "clang-x64",
-            "includePath": [ "${myDefaultIncludePath}", "/another/path" ],
-            "macFrameworkPath": [ "/System/Library/Frameworks" ],
-            "defines": [ "FOO", "BAR=100" ],
-            "forcedInclude": [ "${workspaceFolder}/include/config.h" ],
+            "includePath": [
+                "/Applications/Arduino.app/Contents/Java/tools/**",
+                "/Applications/Arduino.app/Contents/Java/hardware/arduino/avr/**",
+                "${myDefaultIncludePath}"
+            ],
+            "macFrameworkPath": [
+                "/System/Library/Frameworks"
+            ],
+            "defines": [
+                "FOO",
+                "BAR=100"
+            ],
+            "forcedInclude": [
+                "/Applications/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/Arduino.h"
+            ],
             "compilerPath": "/usr/bin/clang",
             "cStandard": "c11",
             "cppStandard": "c++17",
-            "compileCommands": "/path/to/compile_commands.json",
             "browse": {
-                "path": [ 
+                "path": [
                     "${workspaceFolder}",
                     "/Users/d035359/Documents/Arduino/libraries"
-                 ],
+                ],
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": ""
             }
