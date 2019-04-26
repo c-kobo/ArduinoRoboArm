@@ -24,17 +24,9 @@ void setup()
   servoLinks.attach(5);
   servoZange.attach(11);
   initialPosition(servoRechts, 14);
-  delay(100);
   initialPosition(servoLinks, 60);
-  delay(100);
   initialPosition(servoZange, 100);
-  delay(100);
-  initialPosition(servoBoden, 60);
-  delay(100);
-  // servoBoden.write(60);
-  // servoRechts.write(14);
-  // servoLinks.write(60);
-  // servoZange.write(114);
+  initialPosition(servoBoden, 100);
   Serial.begin(9600);
 }
 
@@ -47,7 +39,7 @@ void initialPosition(Servo servo, int startPos)
     steps = startPos - currentPos;
     for (int i = 1; i <= steps; i++)
     {
-      servo.write(servo.read() + 2);
+      servo.write(servo.read() + 4);
       delay(30);
     }
   }
@@ -56,7 +48,7 @@ void initialPosition(Servo servo, int startPos)
     steps = currentPos - startPos;
     for (int i = 1; i <= steps; i++)
     {
-      servo.write(servo.read() - 2);
+      servo.write(servo.read() - 4);
       delay(30);
     }
   }
@@ -67,7 +59,7 @@ void loop()
   //bottom motor
   joyVal = analogRead(joy1X);
   joyVal = map(joyVal, 0, 1023, 0, 175); //servo value between 0-180
-  if (joyVal < 80 || joyVal > 95)
+  if (joyVal < 70 || joyVal > 95)
   {
     currentVal = servoBoden.read();
     if (joyVal < 80 && currentVal > 4)
@@ -78,7 +70,7 @@ void loop()
     {
       servoBoden.write(currentVal + 2);
     }
-    //Serial.println(servoBoden.read());
+    Serial.println(servoBoden.read());
     delay(20);
   }
 
@@ -93,7 +85,7 @@ void loop()
     {
       servoRechts.write(currentVal - 1);
     }
-    if (joyVal > 80 && currentVal < 160)
+    if (joyVal > 80 && currentVal < 100)
     {
       servoRechts.write(currentVal + 1);
     }
