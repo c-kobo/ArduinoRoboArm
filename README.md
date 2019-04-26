@@ -1,2 +1,2 @@
 # ArduinoRoboArm
-DIY Arduino based RoboArm motor steering
+DIY RoboArm 4 motor analog joystick steering
